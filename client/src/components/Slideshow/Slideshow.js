@@ -1,7 +1,6 @@
 import React, { useRef, useEffect } from "react";
 import Slicker from "react-slick";
 import { Link } from "react-router-dom";
-import { useDispatch } from "react-redux";
 
 import "./Slideshow.css";
 
@@ -10,7 +9,6 @@ import { settings } from "./settings";
 export default function Slideshow(props) {
   const data = props.data;
   const slider = useRef();
-  const dispatch = useDispatch();
 
   useEffect(() => {
     setTimeout(() => {

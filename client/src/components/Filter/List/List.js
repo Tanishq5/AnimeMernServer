@@ -15,7 +15,7 @@ export default function List(props) {
     return () => {
       document.removeEventListener("scroll", trackScrolling);
     };
-  }, []);
+  },);
 
   const trackScrolling = async () => {
     const listDiv = document.getElementById("scroll-tracker");

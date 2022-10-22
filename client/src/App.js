@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { HashRouter as Router, Route, Routes, Link, useNavigate } from "react-router-dom";
+import { HashRouter as Route, Routes, Link, useNavigate } from "react-router-dom";
 import StatusAlert from "react-status-alert";
 
 import { useDispatch } from "react-redux";
 
 import Header from "./components/Header/Header";
-import Home from "./components/Home/Home";
 import Filter from "./components/Filter/Filter";
 import DownloadPage from "./components/Download/DownloadPage";
 import Admin from "./components/Admin/Admin";
@@ -33,7 +32,7 @@ export default function App() {
       }
     };
     getData();
-  }, []);
+  },);
 
   return (
     <div >
@@ -145,7 +144,6 @@ function SignUpPage() {
           cpassword,
         }),
       });
-      const data = await res.json();
   
       if (res.status === 406) {
         window.alert("Invalid Registration");
@@ -343,7 +341,7 @@ function ProfilePage() {
 
   useEffect(() => {
     callAboutPage();
-  }, []);
+  },);
 
   return (
     <div>

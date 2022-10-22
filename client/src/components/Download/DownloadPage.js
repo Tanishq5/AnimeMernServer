@@ -32,7 +32,7 @@ export default function DownloadPage() {
     return () => {
       document.title = "AnimeVerse";
     };
-  }, []);
+  },);
 
   const setSeasonAndEpisod = async (list) => {
     try {

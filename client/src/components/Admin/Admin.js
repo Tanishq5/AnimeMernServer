@@ -27,7 +27,7 @@ export default function Admin(props) {
       }
     };
     checkAdmin();
-  }, []);
+  },);
 
   return (
     <div className="container admin-main">

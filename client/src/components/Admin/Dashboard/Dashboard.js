@@ -41,7 +41,7 @@ export default function Dashboard() {
       }, 1000);
     };
     checkAdmin();
-  }, []);
+  },);
 
   const logOut = () => {
     const confirm = window.confirm("Are You Sure To Logout");

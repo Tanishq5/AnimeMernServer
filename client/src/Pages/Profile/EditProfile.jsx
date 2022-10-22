@@ -42,7 +42,7 @@ const EditProfile = () => {
     }
 }
 Edit();
-  }, []);
+  },);
   console.log(userData)
 
   const handleprofileInputs = (e) => {

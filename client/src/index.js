@@ -13,7 +13,7 @@ import "aos/dist/aos.css";
 import "react-status-alert/dist/status-alert.css";
 
 import { Provider } from "react-redux";
-import { createStore, applyMiddleware, compose } from "redux";
+import { createStore, applyMiddleware} from "redux";
 import Reducers from "./redux/reducers/reducers";
 import ReduxThunk from "redux-thunk";
 
