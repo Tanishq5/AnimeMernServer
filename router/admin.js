@@ -1,19 +1,18 @@
 const Router = require("express").Router();
 
-Router.post("/", async (req, res) => {
-  try {
-    const { email, password, secret } = req.body;
-    const { EMAIL, PASSWORD, SECRET_CODE } = process.env;
-    if (email !== EMAIL && password !== PASSWORD && secret !== SECRET_CODE) {
-      res.send("Please Check Data");
-      return;
-    }
-    res.json({ secret: secret });
-  } catch (err) {
-    res.send("Something went wrong");
-    // res.send({ msg: err });
-  }
-});
+// Router.post("/", async (req, res) => {
+//   try {
+//     const { email, password, secret } = req.body;
+//     const { EMAIL, PASSWORD, SECRET_CODE } = process.env;
+//     if (email !== EMAIL && password !== PASSWORD && secret !== SECRET_CODE) {
+//       res.send("Please Check Data");
+//       return;
+//     }
+//     res.json({ secret: secret });
+//   } catch (err) {
+//     res.send({ msg: err });
+//   }
+// });
 
 Router.post("/check", async (req, res) => {
   try {
