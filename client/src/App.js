@@ -38,7 +38,7 @@ export default function App() {
     <div >
         <StatusAlert />
         <Routes>
-          <Route exact path="/" element={<HomePage />}/>
+          <Route path="/" element={<HomePage />}/>
           <Route path="signup" element={<SignUpPage />} />
           <Route path="login" element={<LogInPage />} />
           <Route path="/profile" element={<ProfilePage />} />
