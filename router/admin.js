@@ -8,6 +8,7 @@ Router.post("/", async (req, res) => {
       res.send("Please Check Data");
       return;
     }
+    res.send("hello admin")
     res.json({ secret: secret });
   } catch (err) {
     res.send({ msg: err });
