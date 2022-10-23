@@ -4,17 +4,7 @@ const express = require("express");
 const router = express.Router();
 const bcrypt = require("bcryptjs");
 const authenticate = require("../middleware/authenticate");
-const cookieParser =require("cookie-parser");
-
-router.use(cookieParser());
-
-require("../db/conn");
 const User = require("../model/userSchema");
-
-    router.get("/", (req,res)=>{
-        res.send(`Hello World from server router js`)
-    })
-
 
 router.post("/register", async (req, res) => {
 

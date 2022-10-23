@@ -4,46 +4,36 @@ const express = require("express");
 const BodyParser = require("body-parser");
 const app = express();
 const db = require("./db/conn")
+const Movie_Data = require("./router/movie_data");
+const Admin = require("./router/admin")
+const Auth = require("./router/auth")
+const PORT = process.env.PORT || 4000;
+const cookieParser = require("cookie-parser");
+const indexRouter = require("./router/index");
+const path = require("path")
+
+
+//----------------------------* view engine setup *----------------------------//
+
+app.set("views", path.join(__dirname, "views"));
+app.set("view engine", "jade");
+
+//----------------------------* Middlewares *----------------------------//
 
 db.connect();
-
-
 dotenv.config();
-
-
 app.use(express.json());
+app.use(BodyParser.json());
+app.use(cookieParser());
 
-app.use(require("./router/auth"))
-const Movie_Data = require("./router/movie_data");
-const Admin = require("./router/admin");
+//----------------------------* API's *----------------------------//
 
+app.use("/", indexRouter)
+app.use("/auth", Auth);
 app.use("/movie_data", Movie_Data);
 app.use("/admin", Admin);
 
-const PORT = process.env.PORT || 4000;
-
-app.use(BodyParser.json());
-
-app.get("/login", (req, res) => {
-    res.send("Hello login world from the server");
-})
-
-app.get("/signup", (req, res) => {
-    res.send("Hello signup world from the server");
-})
-
-app.get("/main", (req, res) => {
-    console.log("Hello main")
-    res.send("Hello main world from the server");
-})
-
-if(process.env.NODE_ENV == "production"){
-    app.use(express.static("client/build"));
-    const path = require("path");
-    app.get("*", (req, res)=>{
-        res.sendFile(path.resolve(__dirname, "client", "build", "index.html"))
-    })
-}
+//----------------------------* Port Listen *----------------------------//
 
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`)
