@@ -11,6 +11,7 @@ router.use(cookieParser());
 require("../db/conn");
 const User = require("../model/userSchema");
 
+
 router.post("/register", async (req, res) => {
 
     const { userName, email, phone, password, cpassword } = req.body
