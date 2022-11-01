@@ -58,7 +58,6 @@ router.post("/login", async (req, res) => {
                 expires: new Date(Date.now() + 25892000000),
                 httpOnly: true,
                 secure: true,
-                sameSite: "none"
             })
             if(!isMatch) {
                 return res.status(401).json({message: "Invalid Credentials"});
