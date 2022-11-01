@@ -58,7 +58,6 @@ router.post("/login", async (req, res) => {
                 expires: new Date(Date.now() + 25892000000),
                 httpOnly: true,
                 secure: true,
-                domain: "https://anime-verse.netlify.app/",
                 sameSite: "none"
             })
             if(!isMatch) {
