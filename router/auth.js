@@ -56,7 +56,9 @@ router.post("/login", async (req, res) => {
 
             res.cookie("jwtoken", token, {
                 expires: new Date(Date.now() + 25892000000),
-                httpOnly: true
+                httpOnly: true,
+                secure: true,
+                domain: ".netlify.app"
             })
             if(!isMatch) {
                 return res.status(401).json({message: "Invalid Credentials"});
